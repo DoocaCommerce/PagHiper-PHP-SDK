@@ -33,8 +33,8 @@
 
     ```php
     $pagHiper = new \PagHipperSDK\PagHiper();
-    
-    $item_1 = (new PagHipperSDK\Entities\Item())
+    $items = [];
+    $items[] = (new PagHipperSDK\Entities\Item())
         ->setItemId('1')
         ->setDescription('Descrição do produto')
         ->setQuantity(1)
@@ -62,7 +62,7 @@
         ->setFixedDescription(true)
         ->setDaysDueDate('3')
         ->setPayer($payer)
-        ->setItems($item_1);
+        ->setItems($items);
     
     try {
         $transaction = $pagHiper->createTransaction($transaction);
