@@ -3,13 +3,23 @@
 require dirname(__DIR__) . '/vendor/autoload.php';
 
 \PagHipperSDK\Auth::init(
-    '{API_KEY}',
-    '{TOKEN}'
+    '{api_key}',
+    '{token}'
 );
 
 $pagHiper = new \PagHipperSDK\PagHiper();
 
-$transaction = $pagHiper->getTransaction('{transaction_id}');
+try {
+    $transaction = $pagHiper->getTransaction('{transaction_id}');
+} catch (\PagHipperSDK\Exception\ErrorException $e) {
+    // Exception normalmente gerada pelo retorno do PagHiper
+    echo $e->getMessage();
+    die;
+} catch (Exception $e) {
+    // Outras Exceptions, Auth e Invalid Arguments
+    echo $e->getMessage();
+    die;
+}
 
 echo $transaction->getResult() . PHP_EOL;
 echo $transaction->getResponseMessage() . PHP_EOL;
@@ -26,4 +36,5 @@ echo $transaction->getEarlyPaymentDiscountsCents() . PHP_EOL; // Pode ser null
 echo $transaction->getOpenAfterDayDue() . PHP_EOL; // Pode ser null
 echo $transaction->getBankSlip()->getDigitableLine() . PHP_EOL;
 echo $transaction->getBankSlip()->getUrlSlip() . PHP_EOL;
+echo $transaction->getBankSlip()->getUrlSlipPdf() . PHP_EOL;
 echo $transaction->getHttpCode() . PHP_EOL;

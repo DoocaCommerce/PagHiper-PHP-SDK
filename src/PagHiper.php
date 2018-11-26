@@ -11,9 +11,6 @@ use PagHipperSDK\Response\GetTransaction;
 
 class PagHiper
 {
-    public function __construct()
-    {
-    }
     /**
      * Cria a transaction e retorna
      *
@@ -29,6 +26,15 @@ class PagHiper
         return CreateTransaction::populate($response);
     }
 
+    /**
+     * Consulta uma transicação
+     *
+     * @param string $transactionId
+     * @return GetTransaction
+     * @throws Exception\AuthException
+     * @throws Exception\ErrorException
+     * @throws ValidationException
+     */
     public function getTransaction(string $transactionId)
     {
         if (!($transactionId ?? false)) {
@@ -43,6 +49,15 @@ class PagHiper
         return GetTransaction::populate($response);
     }
 
+    /**
+     * Cancela uma transição
+     *
+     * @param string $transactionId
+     * @return CancelTransaction
+     * @throws Exception\AuthException
+     * @throws Exception\ErrorException
+     * @throws ValidationException
+     */
     public function cancelTransaction(string $transactionId)
     {
         if (!($transactionId ?? false)) {
@@ -58,12 +73,19 @@ class PagHiper
         return CancelTransaction::populate($response);
     }
 
+    /**
+     * Consulta uma notificação
+     *
+     * @param Transaction $transaction
+     * @return GetTransaction
+     * @throws Exception\AuthException
+     * @throws Exception\ErrorException
+     */
     public function getNotification(Transaction $transaction)
     {
         $response = (new Request())->sendRequest('POST', '/transaction/notification/', $transaction);
 
-        var_dump($response);
-        die;
-        // TODO: send notification request
+        // Utilizando o Response da getTransaction, não tem todos os campos, porém possuí todos os necessários
+        return GetTransaction::populate($response);
     }
 }

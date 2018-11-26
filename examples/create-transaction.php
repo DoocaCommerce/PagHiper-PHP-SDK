@@ -3,8 +3,8 @@
 require dirname(__DIR__) . '/vendor/autoload.php';
 
 \PagHipperSDK\Auth::init(
-    '{API_KEY}',
-    '{TOKEN}'
+    '{api_key}',
+    '{token}'
 );
 
 $pagHiper = new \PagHipperSDK\PagHiper();
@@ -13,13 +13,13 @@ $item_1 = (new PagHipperSDK\Entities\Item())
     ->setItemId('1')
     ->setDescription('Descrição do produto')
     ->setQuantity(1)
-    ->setPriceCents(20);
+    ->setPriceCents(30.00);
 
 $item_2 = (new PagHipperSDK\Entities\Item())
     ->setItemId('2')
     ->setDescription('Descrição do produto 2')
     ->setQuantity(2)
-    ->setPriceCents(2000);
+    ->setPriceCents(15.00);
 
 $payer = (new PagHipperSDK\Entities\Payer())
     ->setPayerEmail('webmaster@dooca.com.br')
@@ -36,17 +36,27 @@ $payer = (new PagHipperSDK\Entities\Payer())
 
 $transaction = (new \PagHipperSDK\Entities\Transaction())
     ->setOrderId('TESTE-' . rand(0, 10000))
-    ->setNotificationUrl('http://uma-url.com.br')
-    ->setDiscountCents(1100)
-    ->setShippingPriceCents(2595)
+    ->setNotificationUrl('https://url-de-notificaca.example')
+    ->setDiscountCents(10.00)
+    ->setShippingPriceCents(19.90)
     ->setShippingMethods('PAC')
     ->setFixedDescription(true)
-    ->setDaysDueDate('5')
+    ->setDaysDueDate('3')
     ->setPayer($payer)
     ->setItems($item_1)
     ->setItems($item_2);
 
-$transaction = $pagHiper->createTransaction($transaction);
+try {
+    $transaction = $pagHiper->createTransaction($transaction);
+} catch (\PagHipperSDK\Exception\ErrorException $e) {
+    // Exception normalmente gerada pelo retorno do PagHiper
+    echo $e->getMessage();
+    die;
+} catch (Exception $e) {
+    // Outras Exceptions, Auth e Invalid Arguments
+    echo $e->getMessage();
+    die;
+}
 
 echo $transaction->getResult() . PHP_EOL;
 echo $transaction->getResponseMessage() . PHP_EOL;

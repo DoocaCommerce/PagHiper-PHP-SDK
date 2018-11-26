@@ -1,5 +1,11 @@
 {
-    "name": "DoocaCommerce/PagHiper-PHP-SDK",
+    "name": "doocacommerce/paghiper-php-sdk",
+    "version": "1.0.0",
+    "description": "SDK para o gateway PagHiper em PHP, desenvolvido por Dooca Commerce",
+    "keywords": ["paghiper", "sdk", "php", "dooca"],
+    "homepage": "https://github.com/DoocaCommerce/PagHiper-PHP-SDK",
+    "type": "library",
+    "license": "MIT",
     "authors": [
         {
             "name": "Arthur Nascimento",
@@ -7,6 +13,7 @@
         }
     ],
     "require": {
+        "php": ">=7.0",
         "guzzlehttp/guzzle": "^6.3"
     },
     "autoload": {
