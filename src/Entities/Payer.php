@@ -198,7 +198,7 @@ class Payer implements \JsonSerializable
      * @param int|string $payer_number
      * @return $this
      */
-    public function setPayerNumber(int $payer_number): Payer
+    public function setPayerNumber($payer_number): Payer
     {
         $this->payer_number = Helpers::sanitizeNumber($payer_number);
 
@@ -206,18 +206,18 @@ class Payer implements \JsonSerializable
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getPayerComplement(): string
+    public function getPayerComplement(): ?string
     {
         return $this->payer_complement;
     }
 
     /**
-     * @param string $payer_complement
-     * @return $this
+     * @param null|string $payer_complement
+     * @return Payer
      */
-    public function setPayerComplement(string $payer_complement): Payer
+    public function setPayerComplement(?string $payer_complement): Payer
     {
         $this->payer_complement = $payer_complement;
 
@@ -233,10 +233,10 @@ class Payer implements \JsonSerializable
     }
 
     /**
-     * @param string|null $payer_district
+     * @param string $payer_district
      * @return $this
      */
-    public function setPayerDistrict($payer_district): Payer
+    public function setPayerDistrict(string $payer_district): Payer
     {
         $this->payer_district = $payer_district;
 

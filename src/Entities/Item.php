@@ -89,10 +89,10 @@ class Item implements \JsonSerializable
     }
 
     /**
-     * @param int $quantity
+     * @param int|string $quantity
      * @return $this
      */
-    public function setQuantity(int $quantity): Item
+    public function setQuantity($quantity): Item
     {
         $this->quantity = $quantity;
 

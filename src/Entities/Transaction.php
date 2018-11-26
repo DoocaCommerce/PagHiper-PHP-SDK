@@ -394,10 +394,10 @@ class Transaction implements \JsonSerializable
     }
 
     /**
-     * @param int $discount_cents
+     * @param float $discount_cents
      * @return $this
      */
-    public function setDiscountCents(int $discount_cents): Transaction
+    public function setDiscountCents(float $discount_cents): Transaction
     {
         $this->discount_cents = Helpers::decimalToCents($discount_cents);
 
@@ -413,10 +413,10 @@ class Transaction implements \JsonSerializable
     }
 
     /**
-     * @param int $shipping_price_cents
+     * @param float $shipping_price_cents
      * @return $this
      */
-    public function setShippingPriceCents(int $shipping_price_cents): Transaction
+    public function setShippingPriceCents(float $shipping_price_cents): Transaction
     {
         $this->shipping_price_cents = Helpers::decimalToCents($shipping_price_cents);
 
@@ -473,9 +473,9 @@ class Transaction implements \JsonSerializable
      * @param int $number_ntfiscal
      * @return $this
      */
-    public function setNumberNtfiscal($number_ntfiscal): Transaction
+    public function setNumberNtfiscal(int $number_ntfiscal): Transaction
     {
-        $this->number_ntfiscal = (int) $number_ntfiscal;
+        $this->number_ntfiscal = $number_ntfiscal;
 
         return $this;
     }
@@ -565,10 +565,10 @@ class Transaction implements \JsonSerializable
     }
 
     /**
-     * @param int $early_payment_discounts_cents
+     * @param float $early_payment_discounts_cents
      * @return $this
      */
-    public function setEarlyPaymentDiscountsCents(int $early_payment_discounts_cents): Transaction
+    public function setEarlyPaymentDiscountsCents(float $early_payment_discounts_cents): Transaction
     {
         $this->early_payment_discounts_cents = $early_payment_discounts_cents;
 

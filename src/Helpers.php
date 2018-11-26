@@ -12,6 +12,7 @@ class Helpers
      */
     public static function decimalToCents($value)
     {
+        $value = number_format($value, 2, '.', '');
         return number_format((float) $value * 100, 0, '.', '');
     }
 

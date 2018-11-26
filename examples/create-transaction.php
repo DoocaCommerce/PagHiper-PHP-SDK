@@ -52,7 +52,7 @@ try {
     // Exception normalmente gerada pelo retorno do PagHiper
     echo $e->getMessage();
     die;
-} catch (Exception $e) {
+} catch (\Exception $e) {
     // Outras Exceptions, Auth e Invalid Arguments
     echo $e->getMessage();
     die;
