@@ -1,0 +1,17 @@
+{
+    "name": "DoocaCommerce/PagHiper-PHP-SDK",
+    "authors": [
+        {
+            "name": "Arthur Nascimento",
+            "email": "arthurnascimentolauck@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "PagHipperSDK\\": "src/"
+        }
+    }
+}
