@@ -34,13 +34,13 @@
     ```php
     $pagHiper = new \PagHipperSDK\PagHiper();
     $items = [];
-    $items[] = (new PagHipperSDK\Entities\Item())
+    $items[] = (new \PagHipperSDK\Entities\Item())
         ->setItemId('1')
         ->setDescription('Descrição do produto')
         ->setQuantity(1)
         ->setPriceCents(30.00);
     
-    $payer = (new PagHipperSDK\Entities\Payer())
+    $payer = (new \PagHipperSDK\Entities\Payer())
         ->setPayerEmail('webmaster@dooca.com.br')
         ->setPayerName('Webmaster Dooca')
         ->setPayerCpfCnpj('11144477735')
