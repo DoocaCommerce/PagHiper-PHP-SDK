@@ -233,10 +233,10 @@ class Payer implements \JsonSerializable
     }
 
     /**
-     * @param string $payer_district
+     * @param string|null $payer_district
      * @return $this
      */
-    public function setPayerDistrict(string $payer_district): Payer
+    public function setPayerDistrict($payer_district): Payer
     {
         $this->payer_district = $payer_district;
 

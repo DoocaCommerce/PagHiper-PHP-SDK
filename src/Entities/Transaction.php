@@ -3,6 +3,7 @@
 namespace PagHipperSDK\Entities;
 
 use PagHipperSDK\Auth;
+use PagHipperSDK\Exception\ValidationException;
 use PagHipperSDK\Helpers;
 
 class Transaction implements \JsonSerializable
@@ -602,12 +603,34 @@ class Transaction implements \JsonSerializable
     }
 
     /**
+     * Settar um item
+     *
      * @param Item $item
      * @return $this
      */
-    public function setItems(Item $item): Transaction
+    public function setItem(Item $item): Transaction
     {
         $this->items[] = $item;
+
+        return $this;
+    }
+
+    /**
+     * Settar multiplos items
+     *
+     * @param array $items
+     * @return Transaction
+     * @throws ValidationException
+     */
+    public function setItems(array $items): Transaction
+    {
+        foreach ($items as $item) {
+            if (!($item instanceof Item)) {
+                throw new ValidationException('Item must be an instance of Item', 400);
+            }
+
+            $this->setItem($item);
+        }
 
         return $this;
     }
