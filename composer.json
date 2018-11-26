@@ -1,6 +1,6 @@
 {
     "name": "doocacommerce/paghiper-php-sdk",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "SDK para o gateway PagHiper em PHP, desenvolvido por Dooca Commerce",
     "keywords": ["paghiper", "sdk", "php", "dooca"],
     "homepage": "https://github.com/DoocaCommerce/PagHiper-PHP-SDK",
