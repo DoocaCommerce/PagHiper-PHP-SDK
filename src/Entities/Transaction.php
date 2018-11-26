@@ -629,7 +629,7 @@ class Transaction implements \JsonSerializable
                 throw new ValidationException('Item must be an instance of Item', 400);
             }
 
-            $this->setItem($item);
+            $this->items[] = $item;
         }
 
         return $this;
