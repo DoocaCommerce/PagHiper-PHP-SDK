@@ -9,7 +9,7 @@ require dirname(__DIR__) . '/vendor/autoload.php';
 
 $pagHiper = new \PagHipperSDK\PagHiper();
 
-$transaction = $pagHiper->getTransaction('J9ZK18SNCGDJFABK');
+$transaction = $pagHiper->getTransaction('{transaction_id}');
 
 echo $transaction->getResult() . PHP_EOL;
 echo $transaction->getResponseMessage() . PHP_EOL;
