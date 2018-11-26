@@ -11,6 +11,16 @@ class Status
     /**
      * @var string
      */
+    const SUCCESS = 'success';
+
+    /**
+     * @var string
+     */
+    const REJECT = 'reject';
+
+    /**
+     * @var string
+     */
     const PENDING = 'pending';
 
     /**
