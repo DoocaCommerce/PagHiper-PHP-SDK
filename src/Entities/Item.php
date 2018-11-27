@@ -111,7 +111,7 @@ class Item implements \JsonSerializable
      * @param float $price_cents
      * @return $this
      */
-    public function setPriceCents(float $price_cents): Item
+    public function setPriceCents(?float $price_cents): Item
     {
         $this->price_cents = Helpers::decimalToCents($price_cents);
 

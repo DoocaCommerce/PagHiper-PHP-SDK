@@ -397,7 +397,7 @@ class Transaction implements \JsonSerializable
      * @param float $discount_cents
      * @return $this
      */
-    public function setDiscountCents(float $discount_cents): Transaction
+    public function setDiscountCents(?float $discount_cents): Transaction
     {
         $this->discount_cents = Helpers::decimalToCents($discount_cents);
 
@@ -416,7 +416,7 @@ class Transaction implements \JsonSerializable
      * @param float $shipping_price_cents
      * @return $this
      */
-    public function setShippingPriceCents(float $shipping_price_cents): Transaction
+    public function setShippingPriceCents(?float $shipping_price_cents): Transaction
     {
         $this->shipping_price_cents = Helpers::decimalToCents($shipping_price_cents);
 
