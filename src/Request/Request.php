@@ -85,10 +85,6 @@ class Request
             }
 
             throw new ErrorException('Undefined Error', $e->getCode());
-        } catch (\GuzzleHttp\Exception\GuzzleException $e) {
-            throw new ErrorException('Undefined Error', $e->getCode());
-        } catch (\Exception $e) {
-            throw new ErrorException('Undefined Error', $e->getCode());
         }
     }
 }
