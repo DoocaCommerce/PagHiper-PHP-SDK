@@ -3,6 +3,7 @@
 namespace PagHipperSDK;
 
 use PagHipperSDK\Entities\Transaction;
+use PagHipperSDK\Entities\TransactionListFilters;
 use PagHipperSDK\Exception\ValidationException;
 use PagHipperSDK\Request\Request;
 use PagHipperSDK\Response\CancelTransaction;
@@ -12,7 +13,7 @@ use PagHipperSDK\Response\GetTransaction;
 class PagHiper
 {
     /**
-     * Cria a transaction e retorna
+     * Cria a transaction e retorna.
      *
      * @param Transaction $transaction
      * @return CreateTransaction
@@ -27,20 +28,31 @@ class PagHiper
     }
 
     /**
-     * Consulta uma transicação
+     * Busca transações.
+     *
+     * @param TransactionListFilters|null $filters
+     * @return mixed
+     * @throws Exception\AuthException
+     * @throws Exception\ErrorException
+     */
+    public function listTransactions(?TransactionListFilters $filters)
+    {
+        $response = (new Request())->sendRequest('POST', '/transaction/list/', $filters);
+
+        // TODO: fazer um response para essa lista
+        return \GuzzleHttp\json_decode($response->getBody()->getContents())->transaction_list_request;
+    }
+
+    /**
+     * Consulta uma transicação.
      *
      * @param string $transactionId
      * @return GetTransaction
      * @throws Exception\AuthException
      * @throws Exception\ErrorException
-     * @throws ValidationException
      */
     public function getTransaction(string $transactionId)
     {
-        if (!($transactionId ?? false)) {
-            throw new ValidationException('Missing transaction_id', 400);
-        }
-
         $transaction = new Transaction();
         $transaction->setTransactionId($transactionId);
 
@@ -50,7 +62,7 @@ class PagHiper
     }
 
     /**
-     * Cancela uma transição
+     * Cancela uma transição.
      *
      * @param string $transactionId
      * @return CancelTransaction
@@ -74,7 +86,7 @@ class PagHiper
     }
 
     /**
-     * Consulta uma notificação
+     * Consulta uma notificação.
      *
      * @param Transaction $transaction
      * @return GetTransaction

@@ -70,16 +70,17 @@ class Request
             if ($e->hasResponse()) {
                 $data = \GuzzleHttp\json_decode($e->getResponseBodySummary($e->getResponse()), true);
 
-                if (($data = $data['create_request']) ?? false) {
-                    throw new ErrorException($data['response_message'], $data['http_code']);
+                if ($data = (reset($data)['response_message'] ?? false)) {
+                    // Tentar buscar mensagem de erro
+                    throw new ErrorException($data, $e->getCode());
                 }
             }
 
-            throw new ErrorException('Undefined Error', 400);
+            throw new ErrorException('Undefined Error', $e->getCode());
         } catch (\GuzzleHttp\Exception\GuzzleException $e) {
-            throw new ErrorException('Undefined Error', 400);
+            throw new ErrorException('Undefined Error', $e->getCode());
         } catch (\Exception $e) {
-            throw new ErrorException('Undefined Error', 400);
+            throw new ErrorException('Undefined Error', $e->getCode());
         }
     }
 }

@@ -418,7 +418,7 @@ class Transaction implements \JsonSerializable
      */
     public function setShippingPriceCents(?float $shipping_price_cents): Transaction
     {
-        $this->shipping_price_cents = Helpers::decimalToCents($shipping_price_cents);
+            $this->shipping_price_cents = Helpers::decimalToCents($shipping_price_cents);
 
         return $this;
     }
@@ -636,6 +636,17 @@ class Transaction implements \JsonSerializable
     }
 
     /**
+     * @param string $status
+     * @return Transaction
+     */
+    public function setStatus(string $status): Transaction
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
      * Setta a API key pela Auth
      */
     protected function setApiKey(): void
@@ -649,16 +660,5 @@ class Transaction implements \JsonSerializable
     protected function setToken(): void
     {
         $this->token = Auth::getToken();
-    }
-
-    /**
-     * @param string $status
-     * @return Transaction
-     */
-    public function setStatus(string $status): Transaction
-    {
-        $this->status = $status;
-
-        return $this;
     }
 }
