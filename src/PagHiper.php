@@ -40,7 +40,7 @@ class PagHiper
         $response = (new Request())->sendRequest('POST', '/transaction/list/', $filters);
 
         // TODO: fazer um response para essa lista
-        return \GuzzleHttp\json_decode($response->getBody()->getContents())->transaction_list_request;
+        return $response['transaction_list_request'];
     }
 
     /**

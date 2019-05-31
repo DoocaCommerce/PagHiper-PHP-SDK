@@ -63,24 +63,23 @@ class GetTransaction extends TransactionAbstract
     /**
      * Setta as propriedades da consulta de transição.
      *
-     * @param \Psr\Http\Message\ResponseInterface $response
+     * @param array $response
      * @return GetTransaction
      * @throws ErrorException
      */
-    public static function populate(\Psr\Http\Message\ResponseInterface $response)
+    public static function populate(array $response)
     {
-        $data = \GuzzleHttp\json_decode($response->getBody()->getContents(), true);
         $data = $data['status_request'] ?? null;
 
-        // Caso não encontre resposta
         if (is_null($data)) {
+            // Caso não encontre resposta
             throw new ErrorException('Undefined Error', 400);
         }
 
-        // Caso de erro ao criar transação
         if (201 !== $response->getStatusCode()) {
+            // Caso de erro ao criar transação
             $errorMessage = $data['response_message'] ?? null;
-            throw new ErrorException($errorMessage, 400);
+            throw new ErrorException($errorMessage, $response->getStatusCode());
         }
 
         // Instancia a classe que ta extendendo a abstrata

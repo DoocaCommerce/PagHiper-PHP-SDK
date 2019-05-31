@@ -44,7 +44,12 @@ abstract class TransactionAbstract
      */
     protected $http_code;
 
-    abstract public static function populate(\Psr\Http\Message\ResponseInterface $response);
+    /**
+     * @param array $response
+     * @return mixed
+     */
+    abstract public static function populate(array $response);
+
     /**
      * @return string
      */

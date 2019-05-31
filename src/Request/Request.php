@@ -46,7 +46,7 @@ class Request
      * @param string $method
      * @param $uri
      * @param \JsonSerializable|null $content
-     * @return \Psr\Http\Message\ResponseInterface
+     * @return bool|mixed
      * @throws ErrorException
      */
     public function sendRequest(string $method, $uri, \JsonSerializable $content = null)
@@ -65,7 +65,15 @@ class Request
             $request = new Psr7\Request($method, $uri, [], $content);
             $response = $client->send($request);
 
-            return $response;
+            $data = \GuzzleHttp\json_decode($response->getBody()->getContents(), true);
+            $result = reset($data) ?? false;
+
+            if (($result['result'] ?? false) === 'reject') {
+                // Caso for recusado
+                throw new ErrorException($result['response_message'] ?? 'Undefined Error', 400);
+            }
+
+            return $data;
         } catch (RequestException $e) {
             if ($e->hasResponse()) {
                 $data = \GuzzleHttp\json_decode($e->getResponseBodySummary($e->getResponse()), true);
