@@ -20,11 +20,11 @@ class CreateTransaction extends TransactionAbstract
     /**
      * Setta as propriedades da resposta de transição.
      *
-     * @param array $response
+     * @param array $data
      * @return static::class
      * @throws ErrorException
      */
-    public static function populate(array $response)
+    public static function populate(array $data)
     {
         $data = $data['create_request'] ?? null;
 
@@ -33,7 +33,7 @@ class CreateTransaction extends TransactionAbstract
             throw new ErrorException('Undefined Error', 400);
         }
 
-        if (201 !== $response->getStatusCode()) {
+        if (201 !== $data['http_code']) {
             // Caso de erro ao criar transação
             $errorMessage = $data['response_message'] ?? null;
             throw new ErrorException($errorMessage, 400);

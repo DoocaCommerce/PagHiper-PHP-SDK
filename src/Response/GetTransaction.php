@@ -14,7 +14,7 @@ class GetTransaction extends TransactionAbstract
 
     /**
      * Valor final da transação, contendo juros e multas, ou desconto de pagamento antecipado.
-     * Esse campo só será retornado se a transação estiver com status de paid, ou completed
+     * Esse campo só será retornado se a transação estiver com status de paid, ou completed.
      *
      * @var float
      */
@@ -22,7 +22,7 @@ class GetTransaction extends TransactionAbstract
 
     /**
      * Percentual da multa
-     * Esse campo só será retornado se na requisição do Boleto foi configurado a opção Multa
+     * Esse campo só será retornado se na requisição do Boleto foi configurado a opção Multa.
      *
      * @var int
      */
@@ -30,22 +30,22 @@ class GetTransaction extends TransactionAbstract
 
     /**
      * Juros por atraso
-     * Esse campo só será retornado se na requisição do Boleto foi configurado a opção Juros
+     * Esse campo só será retornado se na requisição do Boleto foi configurado a opção Juros.
      *
-     * @var boolean
+     * @var bool
      */
     protected $per_day_interest;
 
     /**
      * Número de dias em que o pagamento pode ser realizado com antecedência recebendo o desconto extra.
-     * Esse campo só será retornado se na requisição do Boleto foi configurado a opção desconto por antecipação
+     * Esse campo só será retornado se na requisição do Boleto foi configurado a opção desconto por antecipação.
      * @var int
      */
     protected $early_payment_discounts_days;
 
     /**
      * Valor do desconto, que será aplicado caso o pagamento ocorra de forma antecipada.
-     * Esse campo só será retornado se na requisição do Boleto foi configurado a opção desconto por antecipação
+     * Esse campo só será retornado se na requisição do Boleto foi configurado a opção desconto por antecipação.
      *
      * @var float
      */
@@ -63,11 +63,11 @@ class GetTransaction extends TransactionAbstract
     /**
      * Setta as propriedades da consulta de transição.
      *
-     * @param array $response
+     * @param array $data
      * @return GetTransaction
      * @throws ErrorException
      */
-    public static function populate(array $response)
+    public static function populate(array $data)
     {
         $data = $data['status_request'] ?? null;
 
@@ -76,10 +76,10 @@ class GetTransaction extends TransactionAbstract
             throw new ErrorException('Undefined Error', 400);
         }
 
-        if (201 !== $response->getStatusCode()) {
+        if (201 !== $data['http_code']) {
             // Caso de erro ao criar transação
             $errorMessage = $data['response_message'] ?? null;
-            throw new ErrorException($errorMessage, $response->getStatusCode());
+            throw new ErrorException($errorMessage, $data['http_code']);
         }
 
         // Instancia a classe que ta extendendo a abstrata

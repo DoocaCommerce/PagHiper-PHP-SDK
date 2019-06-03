@@ -24,11 +24,11 @@ class CancelTransaction
     /**
      * Popula os objetos.
      *
-     * @param array $response
+     * @param array $data
      * @return CancelTransaction
      * @throws ErrorException
      */
-    public static function populate(array $response)
+    public static function populate(array $data)
     {
         $data = $data['cancellation_request'] ?? null;
 
@@ -37,14 +37,14 @@ class CancelTransaction
             throw new ErrorException('Undefined Error', 400);
         }
 
-        if (201 !== $response->getStatusCode()) {
+        if (201 !== $data['http_code']) {
             // Caso de erro ao criar transação
             $errorMessage = $data['response_message'] ?? null;
             throw new ErrorException($errorMessage, 400);
         }
 
         // Instancia a classe que ta extendendo a abstrata
-        $class = new self;
+        $class = new self();
 
         $class->result = $data['result'];
         $class->response_message = $data['response_message'];
