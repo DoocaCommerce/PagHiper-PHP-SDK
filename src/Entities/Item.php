@@ -7,30 +7,30 @@ use PagHipperSDK\Helpers;
 class Item implements \JsonSerializable
 {
     /**
-     * Id do item
+     * Id do item.
      *
      * @var string
      */
     protected $item_id;
 
     /**
-     * Item description
+     * Item description.
      *
      * @var string
      */
     protected $description;
 
     /**
-     * Quantidade de itens
+     * Quantidade de itens.
      *
-     * @var integer
+     * @var int
      */
     protected $quantity;
 
     /**
-     * Preço do produto
+     * Preço do produto.
      *
-     * @var integer
+     * @var int
      */
     protected $price_cents;
 
@@ -45,13 +45,14 @@ class Item implements \JsonSerializable
     /**
      * @return string
      */
-    public function getItemId(): string
+    public function getItemId()
     {
         return $this->item_id;
     }
 
     /**
      * @param string $item_id
+     *
      * @return $this
      */
     public function setItemId(string $item_id): Item
@@ -64,13 +65,14 @@ class Item implements \JsonSerializable
     /**
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription()
     {
         return $this->description;
     }
 
     /**
      * @param string $description
+     *
      * @return $this
      */
     public function setDescription(string $description): Item
@@ -83,13 +85,14 @@ class Item implements \JsonSerializable
     /**
      * @return int
      */
-    public function getQuantity(): int
+    public function getQuantity()
     {
         return $this->quantity;
     }
 
     /**
      * @param int|string $quantity
+     *
      * @return $this
      */
     public function setQuantity($quantity): Item
@@ -102,13 +105,14 @@ class Item implements \JsonSerializable
     /**
      * @return int
      */
-    public function getPriceCents(): int
+    public function getPriceCents()
     {
         return $this->price_cents;
     }
 
     /**
      * @param float $price_cents
+     *
      * @return $this
      */
     public function setPriceCents(?float $price_cents): Item

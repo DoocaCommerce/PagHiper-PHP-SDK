@@ -331,7 +331,7 @@ class Transaction implements \JsonSerializable
     /**
      * @return int
      */
-    public function getDaysDueDate(): int
+    public function getDaysDueDate()
     {
         return $this->days_due_date;
     }
@@ -350,7 +350,7 @@ class Transaction implements \JsonSerializable
     /**
      * @return string
      */
-    public function getTypeBankSlip(): string
+    public function getTypeBankSlip()
     {
         return $this->type_bank_slip;
     }
@@ -369,7 +369,7 @@ class Transaction implements \JsonSerializable
     /**
      * @return string
      */
-    public function getNotificationUrl(): string
+    public function getNotificationUrl()
     {
         return $this->notification_url;
     }
@@ -388,7 +388,7 @@ class Transaction implements \JsonSerializable
     /**
      * @return integer
      */
-    public function getDiscountCents(): int
+    public function getDiscountCents()
     {
         return $this->discount_cents;
     }
@@ -407,7 +407,7 @@ class Transaction implements \JsonSerializable
     /**
      * @return int
      */
-    public function getShippingPriceCents(): int
+    public function getShippingPriceCents()
     {
         return $this->shipping_price_cents;
     }
@@ -426,7 +426,7 @@ class Transaction implements \JsonSerializable
     /**
      * @return string
      */
-    public function getShippingMethods(): string
+    public function getShippingMethods()
     {
         return $this->shipping_methods;
     }
@@ -445,7 +445,7 @@ class Transaction implements \JsonSerializable
     /**
      * @return string
      */
-    public function getPartnersId(): string
+    public function getPartnersId()
     {
         return $this->partners_id;
     }
@@ -464,7 +464,7 @@ class Transaction implements \JsonSerializable
     /**
      * @return integer
      */
-    public function getNumberNtfiscal(): int
+    public function getNumberNtfiscal()
     {
         return $this->number_ntfiscal;
     }
@@ -483,7 +483,7 @@ class Transaction implements \JsonSerializable
     /**
      * @return bool
      */
-    public function isFixedDescription(): bool
+    public function isFixedDescription()
     {
         return $this->fixed_description;
     }
@@ -502,7 +502,7 @@ class Transaction implements \JsonSerializable
     /**
      * @return int
      */
-    public function getLatePaymentFine(): int
+    public function getLatePaymentFine()
     {
         return $this->late_payment_fine;
     }
@@ -521,7 +521,7 @@ class Transaction implements \JsonSerializable
     /**
      * @return bool
      */
-    public function isPerDayInterest(): bool
+    public function isPerDayInterest()
     {
         return $this->per_day_interest;
     }
@@ -540,7 +540,7 @@ class Transaction implements \JsonSerializable
     /**
      * @return int
      */
-    public function getEarlyPaymentDiscountsDays(): int
+    public function getEarlyPaymentDiscountsDays()
     {
         return $this->early_payment_discounts_days;
     }
@@ -559,7 +559,7 @@ class Transaction implements \JsonSerializable
     /**
      * @return int
      */
-    public function getEarlyPaymentDiscountsCents(): int
+    public function getEarlyPaymentDiscountsCents()
     {
         return $this->early_payment_discounts_cents;
     }
@@ -578,7 +578,7 @@ class Transaction implements \JsonSerializable
     /**
      * @return int
      */
-    public function getOpenAfterDayDue(): int
+    public function getOpenAfterDayDue()
     {
         return $this->open_after_day_due;
     }

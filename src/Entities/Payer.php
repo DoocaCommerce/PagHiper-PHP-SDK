@@ -8,7 +8,7 @@ class Payer implements \JsonSerializable
 {
     /**
      * E-mail valido do cliente pagador
-     * REQUIRED
+     * REQUIRED.
      *
      * @var string
      */
@@ -16,7 +16,7 @@ class Payer implements \JsonSerializable
 
     /**
      * Nome ou Razão social do cliente pagador
-     * REQUIRED
+     * REQUIRED.
      *
      * @var string
      */
@@ -24,16 +24,16 @@ class Payer implements \JsonSerializable
 
     /**
      * CPF ou CNPJ do pagador
-     * REQUIRED
+     * REQUIRED.
      *
      * @var string
      */
     protected $payer_cpf_cnpj;
 
     /**
-     * Número de telefone ou celular do cliente DDD + NUMERO
+     * Número de telefone ou celular do cliente DDD + NUMERO.
      *
-     * @var integer
+     * @var int
      */
     protected $payer_phone;
 
@@ -45,44 +45,44 @@ class Payer implements \JsonSerializable
     protected $payer_street;
 
     /**
-     * Número do endereço do cliente pagador
+     * Número do endereço do cliente pagador.
      *
-     * @var integer
+     * @var int
      */
     protected $payer_number;
 
     /**
-     * Complemento do endereço do cliente pagador
+     * Complemento do endereço do cliente pagador.
      *
      * @var string
      */
     protected $payer_complement;
 
     /**
-     * Bairro do cliente pagador
+     * Bairro do cliente pagador.
      *
      * @var string
      */
     protected $payer_district;
 
     /**
-     * Cidade do cliente pagador
+     * Cidade do cliente pagador.
      *
      * @var string
      */
     protected $payer_city;
 
     /**
-     * Estado do cliente pagador
+     * Estado do cliente pagador.
      *
      * @var string
      */
     protected $payer_state;
 
     /**
-     * CEP do cliente pagador
+     * CEP do cliente pagador.
      *
-     * @var integer
+     * @var int
      */
     protected $payer_zip_code;
 
@@ -94,13 +94,14 @@ class Payer implements \JsonSerializable
     /**
      * @return string
      */
-    public function getPayerEmail(): string
+    public function getPayerEmail()
     {
         return $this->payer_email;
     }
 
     /**
      * @param string $payer_email
+     *
      * @return $this
      */
     public function setPayerEmail(string $payer_email)
@@ -113,13 +114,14 @@ class Payer implements \JsonSerializable
     /**
      * @return string
      */
-    public function getPayerName(): string
+    public function getPayerName()
     {
         return $this->payer_name;
     }
 
     /**
      * @param string $payer_name
+     *
      * @return $this
      */
     public function setPayerName(string $payer_name)
@@ -132,13 +134,14 @@ class Payer implements \JsonSerializable
     /**
      * @return string
      */
-    public function getPayerCpfCnpj(): string
+    public function getPayerCpfCnpj()
     {
         return $this->payer_cpf_cnpj;
     }
 
     /**
      * @param int|string $payer_cpf_cnpj
+     *
      * @return $this
      */
     public function setPayerCpfCnpj($payer_cpf_cnpj): Payer
@@ -151,13 +154,14 @@ class Payer implements \JsonSerializable
     /**
      * @return int
      */
-    public function getPayerPhone(): int
+    public function getPayerPhone()
     {
         return $this->payer_phone;
     }
 
     /**
      * @param int|string $payer_phone
+     *
      * @return $this
      */
     public function setPayerPhone($payer_phone): Payer
@@ -170,13 +174,14 @@ class Payer implements \JsonSerializable
     /**
      * @return string
      */
-    public function getPayerStreet(): string
+    public function getPayerStreet()
     {
         return $this->payer_street;
     }
 
     /**
      * @param string $payer_street
+     *
      * @return $this
      */
     public function setPayerStreet(string $payer_street): Payer
@@ -189,13 +194,14 @@ class Payer implements \JsonSerializable
     /**
      * @return int
      */
-    public function getPayerNumber(): int
+    public function getPayerNumber()
     {
         return $this->payer_number;
     }
 
     /**
      * @param int|string $payer_number
+     *
      * @return $this
      */
     public function setPayerNumber($payer_number): Payer
@@ -206,15 +212,16 @@ class Payer implements \JsonSerializable
     }
 
     /**
-     * @return null|string
+     * @return string|null
      */
-    public function getPayerComplement(): ?string
+    public function getPayerComplement()
     {
         return $this->payer_complement;
     }
 
     /**
-     * @param null|string $payer_complement
+     * @param string|null $payer_complement
+     *
      * @return Payer
      */
     public function setPayerComplement(?string $payer_complement): Payer
@@ -227,13 +234,14 @@ class Payer implements \JsonSerializable
     /**
      * @return string
      */
-    public function getPayerDistrict(): string
+    public function getPayerDistrict()
     {
         return $this->payer_district;
     }
 
     /**
      * @param string $payer_district
+     *
      * @return $this
      */
     public function setPayerDistrict(string $payer_district): Payer
@@ -246,13 +254,14 @@ class Payer implements \JsonSerializable
     /**
      * @return string
      */
-    public function getPayerCity(): string
+    public function getPayerCity()
     {
         return $this->payer_city;
     }
 
     /**
      * @param string $payer_city
+     *
      * @return $this
      */
     public function setPayerCity(string $payer_city): Payer
@@ -265,13 +274,14 @@ class Payer implements \JsonSerializable
     /**
      * @return string
      */
-    public function getPayerState(): string
+    public function getPayerState()
     {
         return $this->payer_state;
     }
 
     /**
      * @param string $payer_state
+     *
      * @return $this
      */
     public function setPayerState(string $payer_state): Payer
@@ -284,13 +294,14 @@ class Payer implements \JsonSerializable
     /**
      * @return int
      */
-    public function getPayerZipCode(): int
+    public function getPayerZipCode()
     {
         return $this->payer_zip_code;
     }
 
     /**
      * @param string|int $payer_zip_code
+     *
      * @return $this
      */
     public function setPayerZipCode($payer_zip_code): Payer
