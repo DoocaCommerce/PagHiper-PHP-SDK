@@ -3,8 +3,7 @@
 namespace PagHipperSDK\Entities;
 
 /**
- * Class Status - Somente para constantes de Status
- * @package PagHipperSDK\Entities
+ * Class Status - Somente para constantes de Status.
  */
 class Status
 {
@@ -17,6 +16,11 @@ class Status
      * @var string
      */
     const REJECT = 'reject';
+
+    /**
+     * @var string
+     */
+    const RESERVED = 'reserved';
 
     /**
      * @var string
