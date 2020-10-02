@@ -20,7 +20,7 @@
     require __DIR__  . '/vendor/autoload.php';
     ```
     
-2) Settar suas credênciais
+2) Settar suas credenciais
 
     ```php
     \PagHipperSDK\Auth::init(
