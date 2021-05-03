@@ -45,6 +45,13 @@ abstract class TransactionAbstract
     protected $http_code;
 
     /**
+     * @var string
+     */
+    protected $qrcode_image_url;
+
+
+
+    /**
      * @param array $response
      * @return mixed
      */
@@ -114,4 +121,13 @@ abstract class TransactionAbstract
     {
         return $this->http_code;
     }
+
+    /**
+     * @return string
+     */
+    public function getQrcodeImageUrl(): string
+    {
+        return $this->qrcode_image_url;
+    }
+
 }
