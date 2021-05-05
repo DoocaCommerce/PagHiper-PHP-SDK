@@ -49,6 +49,16 @@ abstract class TransactionAbstract
      */
     protected $qrcode_image_url;
 
+    /**
+     * @var string
+     */
+    protected $bacen_url;
+
+    /**
+     * @var string
+     */
+    protected $emv;
+
 
 
     /**
@@ -128,6 +138,22 @@ abstract class TransactionAbstract
     public function getQrcodeImageUrl(): string
     {
         return $this->qrcode_image_url;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBacenUrl(): string
+    {
+        return $this->bacen_url;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmv(): string
+    {
+        return $this->emv;
     }
 
 }

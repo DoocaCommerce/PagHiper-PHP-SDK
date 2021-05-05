@@ -45,6 +45,8 @@ class GetTransactionPix extends TransactionAbstract
         $class->order_id = $data['order_id'];
         $class->due_date = $data['due_date'];
         $class->qrcode_image_url = $data['pix_code']['qrcode_image_url'];
+        $class->emv = $data['pix_code']['emv'];
+        $class->bacen_url = $data['pix_code']['bacen_url'];
         $class->http_code = (int) $data['http_code'];
 
 
