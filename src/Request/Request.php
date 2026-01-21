@@ -76,7 +76,8 @@ class Request
             return $data;
         } catch (RequestException $e) {
             if ($e->hasResponse()) {
-                $data = \GuzzleHttp\json_decode($e->getResponseBodySummary($e->getResponse()), true);
+                $body = (string) $e->getResponse()->getBody();
+                $data = \GuzzleHttp\json_decode($body, true);
 
                 if ($data = (reset($data)['response_message'] ?? false)) {
                     // Tentar buscar mensagem de erro
