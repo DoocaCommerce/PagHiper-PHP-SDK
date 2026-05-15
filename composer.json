@@ -21,9 +21,17 @@
         "php": ">=7.1",
         "guzzlehttp/guzzle": ">=6.3"
     },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    },
     "autoload": {
         "psr-4": {
             "PagHipperSDK\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PagHipperSDK\\Tests\\": "tests/"
         }
     }
 }
