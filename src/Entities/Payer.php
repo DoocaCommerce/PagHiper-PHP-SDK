@@ -140,13 +140,13 @@ class Payer implements \JsonSerializable
     }
 
     /**
-     * @param string $payer_cpf_cnpj
+     * @param string|null $payer_cpf_cnpj
      *
      * @return $this
      */
-    public function setPayerCpfCnpj(string $payer_cpf_cnpj): Payer
+    public function setPayerCpfCnpj($payer_cpf_cnpj): Payer
     {
-        $this->payer_cpf_cnpj = Helpers::normalizeCgc($payer_cpf_cnpj);
+        $this->payer_cpf_cnpj = Helpers::normalizeCgc($payer_cpf_cnpj ?? '');
 
         return $this;
     }

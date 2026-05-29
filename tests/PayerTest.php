@@ -69,4 +69,22 @@ class PayerTest extends TestCase
 
         $this->assertSame('12ABC34501DE35', $payer->getPayerCpfCnpj());
     }
+
+    /** @test */
+    public function setPayerCpfCnpj_accepts_empty_string_without_exception(): void
+    {
+        $payer = new Payer();
+        $payer->setPayerCpfCnpj('');
+
+        $this->assertSame('', $payer->getPayerCpfCnpj());
+    }
+
+    /** @test */
+    public function setPayerCpfCnpj_accepts_null_coercing_to_empty_string(): void
+    {
+        $payer = new Payer();
+        $payer->setPayerCpfCnpj(null);
+
+        $this->assertSame('', $payer->getPayerCpfCnpj());
+    }
 }
