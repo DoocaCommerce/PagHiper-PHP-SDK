@@ -35,6 +35,18 @@ class Helpers
     }
 
     /**
+     * Normaliza CPF/CNPJ mantendo apenas caracteres alfanuméricos (A-Z, 0-9) em uppercase.
+     * Suporta CNPJ alfanumérico (Receita Federal, jul/2026).
+     *
+     * @param string $value
+     * @return string
+     */
+    public static function normalizeCgc(string $value): string
+    {
+        return preg_replace('/[^A-Z0-9]/', '', strtoupper($value));
+    }
+
+    /**
      * Camelizes a string.
      *
      * @param string $id A string to camelize
